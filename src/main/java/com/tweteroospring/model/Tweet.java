@@ -1,5 +1,7 @@
 package com.tweteroospring.model;
 
+import com.tweteroospring.dto.TweetDTO;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,6 +14,12 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 public class Tweet {
+
+  public Tweet(TweetDTO data) {
+    this.username = data.username();
+    this.avatar = data.avatar();
+    this.text = data.text();
+  }
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
