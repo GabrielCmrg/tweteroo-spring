@@ -1,6 +1,6 @@
 package com.tweteroospring.model;
 
-import com.tweteroospring.dto.TweetDTO;
+import com.tweteroospring.dto.TweetSaveDTO;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Tweet {
 
-  public Tweet(TweetDTO data) {
+  public Tweet(TweetSaveDTO data) {
     this.username = data.username();
     this.avatar = data.avatar();
     this.text = data.text();

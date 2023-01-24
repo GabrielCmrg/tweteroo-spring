@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tweteroospring.dto.TweetDTO;
+import com.tweteroospring.dto.TweetReqDTO;
 import com.tweteroospring.model.Tweet;
 import com.tweteroospring.service.TweetService;
 
@@ -21,7 +21,7 @@ public class TweetController {
   private TweetService service;
 
   @PostMapping
-  public String postTweet(@RequestBody TweetDTO reqTweetDTO) {
+  public String postTweet(@RequestBody TweetReqDTO reqTweetDTO) {
     service.save(reqTweetDTO);
     return "OK";
   }
