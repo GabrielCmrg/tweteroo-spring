@@ -11,23 +11,23 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.tweteroospring.dto.TweetDTO;
 import com.tweteroospring.model.Tweet;
-import com.tweteroospring.repository.TweetRepository;
+import com.tweteroospring.service.TweetService;
 
 @RestController
 @RequestMapping("/tweets")
 public class TweetController {
 
   @Autowired
-  private TweetRepository repository;
+  private TweetService service;
 
   @PostMapping
   public String postTweet(@RequestBody TweetDTO reqTweetDTO) {
-    repository.save(new Tweet(reqTweetDTO));
+    service.save(reqTweetDTO);
     return "OK";
   }
 
   @GetMapping
   public List<Tweet> findAll() {
-    return repository.findAll();
+    return service.findAll();
   }
 }
